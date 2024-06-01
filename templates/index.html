@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping de dominios .onion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/leon.jpg') }}" alt="Logo">
+            <h1>Scraping de dominios .onion</h1>
+        </div>
+        <form id="scrape-form" action="{{ url_for('scrape') }}" method="post">
+            <div class="form-group">
+                <input type="text" name="url" placeholder="Ingrese la URL .onion" required>
+            </div>
+            <button type="submit">Iniciar Scraping</button>
+        </form>
+        <form action="{{ url_for('history') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Ver Historial</button>
+        </form>
+        <div class="spinner" id="spinner">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/loading.png" alt="Cargando...">
+        </div>
+        <div class="footer">
+            <p>Creado por Leopoldo LORENZO</p>
+            <p>TFG - UNIR</p>
+            <p>2024</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('scrape-form').addEventListener('submit', function() {
+            document.querySelector('button[type="submit"]').disabled = true;
+            document.getElementById('spinner').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

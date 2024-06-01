@@ -1,0 +1,120 @@
+/* style.css */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.header img {
+    max-width: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #6200ea;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+}
+
+button:disabled {
+    background-color: #9e9e9e;
+}
+
+.spinner {
+    display: none;
+    margin-top: 20px;
+}
+
+.spinner img {
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #9e9e9e;
+}
+
+.results, .stats, .summary {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.result-item, .stats table, .summary table {
+    border: 1px solid #444;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+}
+
+.result-item h2, .result-item p, .stats table th, .stats table td, .summary table th, .summary table td {
+    margin: 0 0 10px 0;
+}
+
+.ilicito {
+    color: rgb(252, 17, 17); /* Rojo */
+}
+
+.licito {
+    color: rgb(99, 99, 247); /* Azul */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header img {
+        max-width: 120px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+}

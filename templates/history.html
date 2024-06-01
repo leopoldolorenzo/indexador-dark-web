@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Scraping</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/leon.jpg') }}" alt="Logo">
+            <h1>Historial de Scraping</h1>
+        </div>
+        <div class="results">
+            {% if history %}
+                {% for record in history %}
+                    <div class="result-item">
+                        <h2>{{ record['titulo'] }}</h2>
+                        <p><strong>URL:</strong> {{ record['url'] }}</p>
+                        <p><strong>Texto:</strong> {{ record['texto'] }}</p>
+                        <p class="{{ 'ilicito' if record['es_ilicito'] else 'licito' }}">
+                            <strong>Resumen:</strong> {{ record['resumen'] }}<br>
+                            <strong>Clasificación:</strong> {{ record['clasificacion_tematica'] }}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No hay registros en el historial.</p>
+            {% endif %}
+        </div>
+        <form action="{{ url_for('index') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Volver a Inicio</button>
+        </form>
+        <form action="{{ url_for('stats_tematica') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Ver Estadísticas por Temática</button>
+        </form>
+        <div class="footer">
+            <p>Creado por Leopoldo LORENZO</p>
+            <p>TFG - UNIR</p>
+            <p>2024</p>
+        </div>
+    </div>
+</body>
+</html>

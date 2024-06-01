@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Scraping</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/leon.jpg') }}" alt="Logo">
+            <h1>Resultados del Scraping</h1>
+        </div>
+        <div class="results">
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if results %}
+                {% for result in results %}
+                    <div class="result-item">
+                        <h2>{{ result['titulo'] }}</h2>
+                        <p>{{ result['url'] }}</p>
+                        <p>{{ result['texto'] }}</p>
+                        <p class="{{ 'ilicito' if result['es_ilicito'] else 'licito' }}">
+                            <strong>Resumen:</strong> {{ result['resumen'] }}<br>
+                            <strong>Clasificación:</strong> {{ result['clasificacion'] }}
+                        </p>
+                    </div>
+                {% endfor %}
+                <form action="{{ url_for('stats') }}" method="get" style="margin-top: 10px;">
+                    <input type="hidden" name="domain" value="{{ domain }}">
+                    <button type="submit">Ver Estadísticas</button>
+                </form>
+            {% else %}
+                <p>No se encontraron resultados.</p>
+            {% endif %}
+        </div>
+        <form action="{{ url_for('index') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Volver a Inicio</button>
+        </form>
+        <div class="footer">
+            <p>Creado por Leopoldo LORENZO</p>
+            <p>TFG - UNIR</p>
+            <p>2024</p>
+        </div>
+    </div>
+</body>
+</html>

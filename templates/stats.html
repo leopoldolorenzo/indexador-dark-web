@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas del Scraping</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/leon.jpg') }}" alt="Logo">
+            <h1>Estadísticas del Scraping</h1>
+        </div>
+        <div class="stats">
+            <h2>Detalles de URLs Escaneadas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Tiempo de Scraping (s)</th>
+                        <th>Tiempo de Conexión (s)</th>
+                        <th>Profundidad</th>
+                        <th>Clasificación</th>
+                        <th>Lícito/Ilícito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stat in stats %}
+                        <tr>
+                            <td>{{ stat['url'] }}</td>
+                            <td>{{ stat['tiempo_scraping'] }}</td>
+                            <td>{{ stat['tiempo_conexion'] }}</td>
+                            <td>{{ stat['profundidad'] }}</td>
+                            <td>{{ stat['clasificacion_tematica'] }}</td>
+                            <td class="{{ 'ilicito' if stat['es_ilicito'] else 'licito' }}">{{ 'Ilícito' if stat['es_ilicito'] else 'Lícito' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="summary">
+            <h2>Resumen</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Total URLs Escaneadas</th>
+                        <td>{{ summary.total_urls }}</td>
+                    </tr>
+                    <tr>
+                        <th>Profundidad Máxima</th>
+                        <td>{{ summary.max_profundidad }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tiempo Total de Scraping (s)</th>
+                        <td>{{ summary.total_tiempo_scraping }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tiempo Total de Conexión (s)</th>
+                        <td>{{ summary.total_tiempo_conexion }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Clasificación de URLs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clasificación</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for clasificacion in summary.clasificaciones %}
+                        <tr>
+                            <td>{{ clasificacion.clasificacion_tematica }}</td>
+                            <td>{{ clasificacion.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form action="{{ url_for('index') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Volver a Inicio</button>
+        </form>
+        <div class="footer">
+            <p>Creado por Leopoldo LORENZO</p>
+            <p>TFG - UNIR</p>
+            <p>2024</p>
+        </div>
+    </div>
+</body>
+</html>

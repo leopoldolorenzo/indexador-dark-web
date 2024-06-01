@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas por Temática</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/leon.jpg') }}" alt="Logo">
+            <h1>Estadísticas por Temática</h1>
+        </div>
+        <div class="stats">
+            <h2>Estadísticas de Scraping por Temática</h2>
+            <img src="data:image/png;base64,{{ img_data }}" alt="Gráfico de estadísticas por temática">
+        </div>
+        <form action="{{ url_for('history') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Regresar a Historial</button>
+        </form>
+        <form action="{{ url_for('index') }}" method="get" style="margin-top: 10px;">
+            <button type="submit">Volver a Inicio</button>
+        </form>
+        <div class="footer">
+            <p>Creado por Leopoldo LORENZO</p>
+            <p>TFG - UNIR</p>
+            <p>2024</p>
+        </div>
+    </div>
+</body>
+</html>

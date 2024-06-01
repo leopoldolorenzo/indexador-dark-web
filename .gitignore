@@ -1,0 +1,14 @@
+# Entorno virtual
+nuevo_venv/
+venv/
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de configuración específicos del entorno
+.env
+
+# Otros archivos innecesarios
+*.log
+*.sqlite3
