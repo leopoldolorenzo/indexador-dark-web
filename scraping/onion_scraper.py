@@ -110,17 +110,17 @@ class OnionScraper:
         topics = {
             "Drogas": ["droga", "cocaína", "marihuana", "heroína", "metanfetamina"],
             "Armas": ["arma", "fusil", "pistola", "munición", "explosivo"],
-            "Finanzas": ["bitcoin", "criptomoneda", "dinero", "btc", "lavado de dinero", "fraude", "banco"],
+            "Finanzas": ["bitcoin", "criptomoneda", "dinero", "btc", "lavado de dinero", "banco"],
             "Hacking": ["hack", "ciberseguridad", "malware", "ransomware", "ddos", "phishing"],
-            "Documentos Falsos": ["pasaporte", "identificación", "licencia", "documento falso", "visa"],
+            "Falsificacion Documental": ["pasaportes falsos", "identificación", "licencia", "documento falso", "visa", "falsificación de identidad"],
             "Servicios Ilegales": ["asesinato", "golpe", "fraude", "corrupción"],
-            "Contenido Explícito": ["pornografía", "abuso", "explícito", "infantil"],
+            "Contenido Explicito": ["pornografía", "abuso", "explícito", "infantil"],
             "Mercado Negro": ["tráfico", "mercado negro", "venta ilegal", "comercio ilícito"],
             "Contrabando": ["contrabando", "mercancía ilegal", "traficante"],
             "Fraude": ["fraude", "estafa", "esquema ponzi", "phishing"],
             "Violencia": ["violencia", "terrorismo", "ataque", "secuestro"],
-            "Extorsión": ["extorsión", "secuestro", "amenaza", "chantaje"],
-            "Falsificación": ["falsificación", "falso", "imitar", "fraude"]
+            "Extorsion": ["extorsión", "secuestro", "amenaza", "chantaje"],
+            "Falsificacion": ["falsificación", "falso", "imitar", "fraude"]
         }
         classification_summary = classification_summary.lower()
         for theme, keywords in topics.items():

@@ -21,7 +21,7 @@ class TextClassifier:
     def classify_text_response(self, texto_respuesta):
         texto_respuesta = texto_respuesta.lower()
         palabras_ilicitas = ["ilícito", "ilegal", "prohibido"]
-        indicadores_licitos = ["no es ilícito", "no es ilegal", "no es prohibido", "es lícito", "es legal", "no contiene"]
+        indicadores_licitos = ["no es ilícito", "no es ilegal", "no es prohibido", "es lícito", "es legal"]
 
         for indicador in indicadores_licitos:
             if indicador in texto_respuesta:
